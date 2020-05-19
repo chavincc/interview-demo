@@ -40,8 +40,16 @@ const BookList = ({ books, editBook, deleteBook }) => {
                         edit
                       </Button>
                     </>
-                  }
-                />
+                  }>
+                  <img
+                    src={item[bookField.imageURL]}
+                    style={{ marginBottom: '1rem', maxHeight: '200px' }}
+                  />
+                  <p>author: {item[bookField.author]}</p>
+                  <p>summary: {item[bookField.summary]}</p>
+                  <p>finish date: {item[bookField.finishDate]}</p>
+                  <p>timespan: {item[bookField.timespan] + ' day(s)'}</p>
+                </Card>
               </List.Item>
             )}
           />
