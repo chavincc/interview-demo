@@ -3,10 +3,6 @@ import { Layout, Form, Input, Button, DatePicker } from 'antd'
 
 import { bookField } from '../../utils/types'
 
-// debug purpose
-import store from '../../store'
-//
-
 const { Content } = Layout
 const { TextArea } = Input
 
@@ -81,11 +77,6 @@ const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
             </Form.Item>
             <Form.Item>
               <Button onClick={handleSubmit}>save</Button>
-            </Form.Item>
-            <Form.Item>
-              <Button onClick={() => console.log(store.getState())}>
-                log state
-              </Button>
             </Form.Item>
           </Form>
         </div>
