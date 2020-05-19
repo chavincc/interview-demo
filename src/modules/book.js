@@ -7,7 +7,17 @@ export const ADD_BOOK = 'book/ADD_BOOK'
 export const CLEAR_BOOK = 'book/CLEAR_BOOK'
 
 const initialState = {
-  books: [],
+  books: [
+    {
+      [bookField.id]: '0',
+      [bookField.bookName]: 'testbook id=0',
+      [bookField.author]: '',
+      [bookField.summary]: '',
+      [bookField.finishDate]: '',
+      [bookField.imageURL]: '',
+      [bookField.timespan]: ''
+    }
+  ],
   formValue: {
     [bookField.bookName]: '',
     [bookField.author]: '',
@@ -47,6 +57,20 @@ export default (state = initialState, action) => {
         ]
       })
 
+    case 'DELETE_BOOK':
+      return Object.assign({}, state, {
+        books: state.books.filter(book => book[bookField.id] !== action.id)
+      })
+
+    case 'EDIT_BOOK':
+      return Object.assign({}, state, {
+        books: state.books.map(book =>
+          book[bookField.id] === action.id
+            ? { ...action.newBook, id: book[bookField.id] }
+            : book
+        )
+      })
+
     default:
       return state
   }
@@ -73,5 +97,22 @@ export const addBook = book => {
     dispatch({
       type: 'ADD_BOOK',
       book
+    })
+}
+
+export const deleteBook = id => {
+  return dispatch =>
+    dispatch({
+      type: 'DELETE_BOOK',
+      id
+    })
+}
+
+export const editBook = (id, newBook) => {
+  return dispatch =>
+    dispatch({
+      type: 'EDIT_BOOK',
+      id,
+      newBook
     })
 }
