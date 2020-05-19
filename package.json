@@ -17,6 +17,7 @@
   "dependencies": {
     "antd": "^3.10.8",
     "connected-react-router": "4.5.0",
+    "moment": "^2.25.3",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-redux": "5.1.1",
@@ -25,7 +26,8 @@
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "sanitize.css": "7.0.3",
-    "serve": "10.1.1"
+    "serve": "10.1.1",
+    "uuid": "^8.0.0"
   },
   "browserslist": [
     ">0.2%",
