@@ -54,6 +54,7 @@ const BookList = ({ books, editBook, deleteBook }) => {
                   <img
                     src={item[bookField.imageURL]}
                     style={{ marginBottom: '1rem', maxHeight: '200px' }}
+                    alt="book cover"
                   />
                   <p>author: {item[bookField.author]}</p>
                   <p>summary: {item[bookField.summary]}</p>
