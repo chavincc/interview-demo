@@ -1,13 +1,16 @@
 import React from 'react'
 import { Layout, Form, Input, Button, DatePicker } from 'antd'
 
-import { requiredFieldRule, nameRule } from '../../utils/rules'
 import { bookField } from '../../utils/types'
+
+// debug purpose
+import store from '../../store'
+//
 
 const { Content } = Layout
 const { TextArea } = Input
 
-const AddBook = ({ formValue, addBook, updateField }) => {
+const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
   const handleFormChange = e => {
     const { value, name } = e.target
     updateField(name, value)
@@ -15,6 +18,13 @@ const AddBook = ({ formValue, addBook, updateField }) => {
 
   const handleDateChange = e => {
     updateField(bookField.finishDate, e)
+  }
+
+  const handleSubmit = () => {
+    // if form valid do
+    addBook(formValue)
+    clearBookForm()
+    alert('saved')
   }
 
   return (
@@ -55,7 +65,12 @@ const AddBook = ({ formValue, addBook, updateField }) => {
               />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit">save</Button>
+              <Button onClick={handleSubmit}>save</Button>
+            </Form.Item>
+            <Form.Item>
+              <Button onClick={() => console.log(store.getState())}>
+                log state
+              </Button>
             </Form.Item>
           </Form>
         </div>

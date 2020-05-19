@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addBook, updateField } from '../../modules/book'
+import { addBook, updateField, clearBookForm } from '../../modules/book'
 import AddBook from './view'
 
 const mapStateToProps = state => {
@@ -7,6 +7,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
+  clearBookForm: book => dispatch(clearBookForm()),
   addBook: book => dispatch(addBook(book)),
   updateField: (field, value) => dispatch(updateField(field, value))
 })
