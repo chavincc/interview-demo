@@ -64,6 +64,21 @@ const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
                 name={bookField.finishDate}
               />
             </Form.Item>
+            <Form.Item label="time you took to finished this book">
+              <Input
+                value={formValue[bookField.timespan]}
+                onChange={handleFormChange}
+                name={bookField.timespan}
+                suffix={'day(s)'}
+              />
+            </Form.Item>
+            <Form.Item label="image (url)">
+              <Input
+                value={formValue[bookField.imageURL]}
+                onChange={handleFormChange}
+                name={bookField.imageURL}
+              />
+            </Form.Item>
             <Form.Item>
               <Button onClick={handleSubmit}>save</Button>
             </Form.Item>

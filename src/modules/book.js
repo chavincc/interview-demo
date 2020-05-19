@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 import { bookField } from '../utils/types'
 
 export const UPDATE_FIELD = 'book/UPDATE_FIELD'
@@ -5,19 +7,14 @@ export const ADD_BOOK = 'book/ADD_BOOK'
 export const CLEAR_BOOK = 'book/CLEAR_BOOK'
 
 const initialState = {
-  books: [
-    {
-      [bookField.bookName]: 'dummy',
-      [bookField.author]: 'mister writer',
-      [bookField.summary]: 'idk',
-      [bookField.finishDate]: '2010-10-10'
-    }
-  ],
+  books: [],
   formValue: {
     [bookField.bookName]: '',
     [bookField.author]: '',
     [bookField.summary]: '',
-    [bookField.finishDate]: ''
+    [bookField.finishDate]: '',
+    [bookField.imageURL]: '',
+    [bookField.timespan]: ''
   }
 }
 
@@ -41,7 +38,13 @@ export default (state = initialState, action) => {
       })
     case 'ADD_BOOK':
       return Object.assign({}, state, {
-        books: [...state.books, action.book]
+        books: [
+          ...state.books,
+          {
+            ...action.book,
+            id: uuidv4()
+          }
+        ]
       })
 
     default:
