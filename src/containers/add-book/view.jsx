@@ -31,21 +31,21 @@ const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
         </h1>
         <div className="container">
           <Form>
-            <Form.Item label="book name">
+            <Form.Item label="book name" key="1">
               <Input
                 value={formValue[bookField.bookName]}
                 onChange={handleFormChange}
                 name={bookField.bookName}
               />
             </Form.Item>
-            <Form.Item label="author name">
+            <Form.Item label="author name" key="2">
               <Input
                 value={formValue[bookField.author]}
                 onChange={handleFormChange}
                 name={bookField.author}
               />
             </Form.Item>
-            <Form.Item label="content summary">
+            <Form.Item label="content summary" key="3">
               <TextArea
                 rows={5}
                 value={formValue[bookField.summary]}
@@ -53,14 +53,14 @@ const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
                 name={bookField.summary}
               />
             </Form.Item>
-            <Form.Item label="date you finished this book">
+            <Form.Item label="date you finished this book" key="4">
               <DatePicker
                 value={formValue[bookField.finishDate]}
                 onChange={handleDateChange}
                 name={bookField.finishDate}
               />
             </Form.Item>
-            <Form.Item label="time you took to finished this book">
+            <Form.Item label="time you took to finished this book" key="5">
               <Input
                 value={formValue[bookField.timespan]}
                 onChange={handleFormChange}
@@ -68,14 +68,14 @@ const AddBook = ({ formValue, addBook, updateField, clearBookForm }) => {
                 suffix={'day(s)'}
               />
             </Form.Item>
-            <Form.Item label="image (url)">
+            <Form.Item label="image (url)" key="6">
               <Input
                 value={formValue[bookField.imageURL]}
                 onChange={handleFormChange}
                 name={bookField.imageURL}
               />
             </Form.Item>
-            <Form.Item>
+            <Form.Item key="7">
               <Button onClick={handleSubmit}>save</Button>
             </Form.Item>
           </Form>
