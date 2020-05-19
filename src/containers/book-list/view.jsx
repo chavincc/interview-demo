@@ -6,6 +6,23 @@ import { bookField } from '../../utils/types/'
 const { Content } = Layout
 
 const BookList = ({ books, editBook, deleteBook }) => {
+  const handleEdit = id => {
+    editBook(
+      id,
+      // new book
+      {
+        [bookField.bookName]: 'edit test id = 0',
+        [bookField.author]: 'edit',
+        [bookField.summary]: `I cannot finish this feature on time. However, store action is implemented.
+          BRIEF: store find book with same id and change every field except id.
+          `,
+        [bookField.finishDate]: 'edit',
+        [bookField.imageURL]: 'edit',
+        [bookField.timespan]: 'edit'
+      }
+    )
+  }
+
   return (
     <Layout className="layout">
       <Content>
@@ -28,14 +45,7 @@ const BookList = ({ books, editBook, deleteBook }) => {
                       </Button>
                       <Button
                         onClick={() => {
-                          editBook(item[bookField.id], {
-                            [bookField.bookName]: 'edit test id = 0',
-                            [bookField.author]: '',
-                            [bookField.summary]: '',
-                            [bookField.finishDate]: '',
-                            [bookField.imageURL]: '',
-                            [bookField.timespan]: ''
-                          })
+                          handleEdit(item[bookField.id])
                         }}>
                         edit
                       </Button>
@@ -53,10 +63,6 @@ const BookList = ({ books, editBook, deleteBook }) => {
               </List.Item>
             )}
           />
-          {/* <img
-          className="img"
-          src="https://cdn-images-1.medium.com/max/1200/1*YUgt_aABOjm41Hapy1phqA.png"
-        /> */}
         </div>
       </Content>
     </Layout>
